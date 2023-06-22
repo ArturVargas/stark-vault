@@ -48,7 +48,7 @@ The rebalance function can be called by the owner to swap 50% of the staked ETH 
 
 starknet deploy --class_hash 0x6660c8e02198658c5d67e4193c3f76b301de4cff32f70f1a4cab29206a27d11 --inputs 0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7 0x064aadabc2509543b76abbb90e3f439d347a1c3c2bc7724638a8229aca40f691 0x446812bac98c08190dee8967180f4e3cdcd1db9373ca269904acb17f67f7093 19514442401534788 0x022aAdB68263d40197452fe3e7b5172f156C12b01cFc0F969a391f076b203cC3 --account hack
 
-[Contract address Stark Valut](0x07ec2e7f4cea55320d16587c9e53e5be641eb4a150e9b0c477c6aa56be6f1217)
+[Contract address Stark Valut](https://testnet.starkscan.co/contract/0x042d669bf9f7591c2f9d65b4f7a0ffa76afd958103ce499029528970fe61252f)
 
 ## Interfaces
 

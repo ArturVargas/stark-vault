@@ -121,49 +121,51 @@ mod Vault {
     }
     
     #[external]
-    fn stake(amount: u256) {
-        let caller = get_caller_address();
+    fn stake(amount: u256, user_stake: ContractAddress) -> u256 {
+        // let caller = get_caller_address();
         let this_contract = get_contract_address();
         let staking_token = IERC20Dispatcher { contract_address: _staking_token::read() };
 
-        let approved: u256 = staking_token.allowance(caller, this_contract);
+        let approved: u256 = staking_token.allowance(user_stake, this_contract);
         assert(approved > 1.into(), 'Not approved');
         assert(amount != 0.into(), 'Must be greater than 0');
 
-        staking_token.transfer_from(caller, this_contract, amount);
-        _stakers::write(caller, amount);
-        _rewards::write(caller, _rewards::read(caller) + 500000.into());
+        staking_token.transfer_from(user_stake, this_contract, amount);
+        _stakers::write(user_stake, amount);
+        _rewards::write(user_stake, _rewards::read(user_stake) + 500000.into());
         
-        Deposit(caller, amount);
+        Deposit(user_stake, amount);
         
+        amount
     }
 
     #[external]
-    fn withdrawStake() {
-        let caller = get_caller_address();
-        let amount_staked = _stakers::read(caller);
+    fn withdrawStake(amount: u256, user_stake: ContractAddress) {
+        // let caller = get_caller_address();
+        let amount_staked = _stakers::read(user_stake);
         assert(amount_staked > 0.into(), 'Dont have amount staked');
+        assert(amount <= amount_staked, 'Dont have enough amount staked');
 
         let staking_token = IERC20Dispatcher { contract_address: _staking_token::read() };
 
-        _stakers::write(caller, 0.into());
-        staking_token.transfer(caller, amount_staked);
+        _stakers::write(user_stake, (amount_staked - amount));
+        staking_token.transfer(user_stake, amount);
 
-        Withdraw(caller, amount_staked);
+        Withdraw(user_stake, amount);
     }
 
     #[external]
-    fn claimRewards() {
-        let caller = get_caller_address();
+    fn claimRewards(user_stake: ContractAddress) {
+        // let caller = get_caller_address();
         let this_contract = get_contract_address();
-        let rewards = earnedRewards(caller);
+        let rewards = earnedRewards(user_stake);
         assert(rewards > 0.into(), 'Dont have rewards');
         let reward_token = IERC20Dispatcher { contract_address: _token_rewards::read() };
 
-        _rewards::write(caller, 0.into()); // se actualiza el registro
-        reward_token.mint(caller, 50000.into()); // lo mintea el contrato
+        _rewards::write(user_stake, 0.into()); // se actualiza el registro
+        reward_token.mint(user_stake, 50000.into()); // lo mintea el contrato
 
-        Claim_Rewards(caller, rewards);
+        Claim_Rewards(user_stake, rewards);
     }
 
     #[external]
