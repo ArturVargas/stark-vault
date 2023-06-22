@@ -2,17 +2,17 @@ use starknet::ContractAddress;
 
 #[abi]
 trait IERC20 {
-    fn get_name() -> felt252;
-    fn get_symbol() -> felt252;
-    fn get_decimals() -> u8;
-    fn get_total_supply() -> u256;
-    fn balance_of(account: ContractAddress) -> u256;
+    fn name() -> felt252;
+    fn symbol() -> felt252;
+    fn decimals() -> u8;
+    fn totalSupply() -> u256;
+    fn balanceOf(account: ContractAddress) -> u256;
     fn allowance(owner: ContractAddress, spender: ContractAddress) -> u256;
     fn transfer(recipient: ContractAddress, amount: u256);
-    fn transfer_from(sender: ContractAddress, recipient: ContractAddress, amount: u256);
+    fn transferFrom(sender: ContractAddress, recipient: ContractAddress, amount: u256);
     fn approve(spender: ContractAddress, amount: u256);
-    fn increase_allowance(spender: ContractAddress, added_value: u256);
-    fn decrease_allowance(spender: ContractAddress, subtracted_value: u256);
+    fn increaseAllowance(spender: ContractAddress, added_value: u256);
+    fn decreaseAllowance(spender: ContractAddress, subtracted_value: u256);
     fn mint(recipient: ContractAddress, amount: u256);
 }
 
@@ -108,7 +108,7 @@ mod Vault {
     fn eth_staked() -> u256 {
         let self = get_contract_address();
         let staking_token = IERC20Dispatcher { contract_address: _staking_token::read() };
-        let balance = staking_token.balance_of(self);
+        let balance = staking_token.balanceOf(self);
         balance
     }
 
@@ -130,7 +130,7 @@ mod Vault {
         assert(approved > 1.into(), 'Not approved');
         assert(amount != 0.into(), 'Must be greater than 0');
 
-        staking_token.transfer_from(user_stake, this_contract, amount);
+        staking_token.transferFrom(user_stake, this_contract, amount);
         _stakers::write(user_stake, amount);
         _rewards::write(user_stake, _rewards::read(user_stake) + 500000.into());
         
@@ -179,7 +179,7 @@ mod Vault {
         // 50% staked eth swap to usdc
         let amount_to_swap = eth_balance*500000000000000000;
         let staking_token = IERC20Dispatcher { contract_address: _staking_token::read() };
-        staking_token.transfer_from(self, owner, amount_to_swap);
+        staking_token.transferFrom(self, owner, amount_to_swap);
 
         Rebalanced(amount_to_swap, get_block_timestamp());
     }

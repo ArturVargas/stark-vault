@@ -20,9 +20,9 @@ The approve, mint, transfer, and transfer_from functions allow addresses to appr
 
 ### Deployment
 
-starknet deploy --class_hash 0x1d975f52fb9db277f824823061e8429153fb29ced34d7fbbef3104518d77753 --inputs 545218989635347278031988 126943854226548 18 100000000000000000000 0 0x022aAdB68263d40197452fe3e7b5172f156C12b01cFc0F969a391f076b203cC3 --account hack
+starknet deploy --class_hash 0x725d5b652e96198c08ab4f59b0804496252f0b4678d3dbd4baa4e532aaafcbe --inputs 545218989635347278031988 126943854226548 18 100000000000000000000 0 0x022aAdB68263d40197452fe3e7b5172f156C12b01cFc0F969a391f076b203cC3 --account hack
 
-[Contract address erc20](https://testnet.starkscan.co/contract/0x064aadabc2509543b76abbb90e3f439d347a1c3c2bc7724638a8229aca40f691#read-write-contract)
+[Contract address erc20](https://testnet.starkscan.co/contract/0x0680caae95491d92f41553dadf8a9c75605d23d63443c1ad2cd236a59c46a30a#read-write-contract)
 
 ## Vault Contract
 
@@ -46,9 +46,9 @@ The rebalance function can be called by the owner to swap 50% of the staked ETH 
 
 ### Deployment
 
-starknet deploy --class_hash 0x6660c8e02198658c5d67e4193c3f76b301de4cff32f70f1a4cab29206a27d11 --inputs 0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7 0x064aadabc2509543b76abbb90e3f439d347a1c3c2bc7724638a8229aca40f691 0x446812bac98c08190dee8967180f4e3cdcd1db9373ca269904acb17f67f7093 19514442401534788 0x022aAdB68263d40197452fe3e7b5172f156C12b01cFc0F969a391f076b203cC3 --account hack
+starknet deploy --class_hash 0x3a75c0c17594b8608e10f1d0c1dbc54f030a01fb96d453302ddf06204c5c60d --inputs 0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7 0x0680caae95491d92f41553dadf8a9c75605d23d63443c1ad2cd236a59c46a30a 0x446812bac98c08190dee8967180f4e3cdcd1db9373ca269904acb17f67f7093 19514442401534788 0x022aAdB68263d40197452fe3e7b5172f156C12b01cFc0F969a391f076b203cC3 --account hack
 
-[Contract address Stark Valut](https://testnet.starkscan.co/contract/0x042d669bf9f7591c2f9d65b4f7a0ffa76afd958103ce499029528970fe61252f)
+[Contract address Stark Valut](https://testnet.starkscan.co/contract/0x04f65c89baa8a52b8da26c2b8ca0a9b2c9c13a7c70b3cb6d8e7822f96113fbbc)
 
 ## Interfaces
 

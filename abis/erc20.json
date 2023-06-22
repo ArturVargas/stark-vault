@@ -1963,44 +1963,44 @@
   "entry_points_by_type": {
     "EXTERNAL": [
       {
-        "selector": "0x83afd3f4caedc6eebf44246fe54e38c95e3179a5ec9ea81740eca5b482d12e",
-        "function_idx": 8
+        "selector": "0x41b033f4a31df8067c24d1e9b550a2ce75fd4a29e1147af9752174f0e6cb20",
+        "function_idx": 9
       },
       {
-        "selector": "0x16d9d5d83f8eecc5d7450519aad7e6e649be1a6c9d6df85bd0b177cc59a926a",
+        "selector": "0x4c4fb1ab068f6039d5780c68dd0fa2f8742cceb3426d19667778ca7f3518a9",
         "function_idx": 2
+      },
+      {
+        "selector": "0x80aa9fdbfaf9615e4afc7f5f722e265daca5ccc655360fa5ccacf9c267936d",
+        "function_idx": 3
+      },
+      {
+        "selector": "0x83afd3f4caedc6eebf44246fe54e38c95e3179a5ec9ea81740eca5b482d12e",
+        "function_idx": 8
       },
       {
         "selector": "0x1e888a1026b19c8c0b57c72d63ed1737106aa10034105b980ba117bd0c29fe1",
         "function_idx": 5
       },
       {
+        "selector": "0x216b05c387bab9ac31918a3e61672f4618601f3c598a2f3f2710f37053e1ea4",
+        "function_idx": 1
+      },
+      {
         "selector": "0x219209e083275171774dab1df80982e9df2096516f06319c5c6d71ae0a8480c",
         "function_idx": 6
       },
       {
-        "selector": "0x2819e8b2b82ee4c56798709651ab9e8537f644c0823e42ba017efce4f2077e4",
-        "function_idx": 3
+        "selector": "0x2e4263afad30923c891518314c3c95dbe830a16874e8abc5777a9a20b54c76e",
+        "function_idx": 4
       },
       {
         "selector": "0x2f0b3c5710379609eb5495f1ecd348cb28167711b73609fe565a72734550354",
         "function_idx": 7
       },
       {
-        "selector": "0x31341177714d81ad9ccd0c903211bc056a60e8af988d0fd918cc43874549653",
+        "selector": "0x361458367e696363fbcc70777d07ebbd2394e89fd0adcaf147faccd1d294d60",
         "function_idx": 0
-      },
-      {
-        "selector": "0x351ccc9e7b13b17e701a7d4f5f85b525bac37b7648419fe194e6c15bc73da47",
-        "function_idx": 1
-      },
-      {
-        "selector": "0x35a73cd311a05d46deda634c5ee045db92f811b4e74bca4437fcb5302b7af33",
-        "function_idx": 4
-      },
-      {
-        "selector": "0x3704ffe8fba161be0e994951751a5033b1462b918ff785c0a636be718dfdb68",
-        "function_idx": 9
       }
     ],
     "L1_HANDLER": [],
@@ -2042,7 +2042,7 @@
     },
     {
       "type": "function",
-      "name": "get_name",
+      "name": "name",
       "inputs": [],
       "outputs": [
         {
@@ -2053,7 +2053,7 @@
     },
     {
       "type": "function",
-      "name": "get_symbol",
+      "name": "symbol",
       "inputs": [],
       "outputs": [
         {
@@ -2064,7 +2064,7 @@
     },
     {
       "type": "function",
-      "name": "get_decimals",
+      "name": "decimals",
       "inputs": [],
       "outputs": [
         {
@@ -2075,7 +2075,7 @@
     },
     {
       "type": "function",
-      "name": "get_total_supply",
+      "name": "totalSupply",
       "inputs": [],
       "outputs": [
         {
@@ -2086,7 +2086,7 @@
     },
     {
       "type": "function",
-      "name": "balance_of",
+      "name": "balanceOf",
       "inputs": [
         {
           "name": "account",
@@ -2178,7 +2178,7 @@
     },
     {
       "type": "function",
-      "name": "transfer_from",
+      "name": "transferFrom",
       "inputs": [
         {
           "name": "from",

@@ -36,27 +36,27 @@ mod ERC20 {
     }
 
     #[view]
-    fn get_name() -> felt252 {
+    fn name() -> felt252 {
         _name::read()
     }
 
     #[view]
-    fn get_symbol() -> felt252 {
+    fn symbol() -> felt252 {
         _symbol::read()
     }
 
     #[view]
-    fn get_decimals() -> u8 {
+    fn decimals() -> u8 {
         _decimals::read()
     }
 
     #[view]
-    fn get_total_supply() -> u256 {
+    fn totalSupply() -> u256 {
         _total_supply::read()
     }
 
     #[view]
-    fn balance_of(account: ContractAddress) -> u256 {
+    fn balanceOf(account: ContractAddress) -> u256 {
         _balances::read(account)
     }
 
@@ -95,7 +95,7 @@ mod ERC20 {
     }
 
     #[external]
-    fn transfer_from(from: ContractAddress, to: ContractAddress, amount: u256) -> bool {
+    fn transferFrom(from: ContractAddress, to: ContractAddress, amount: u256) -> bool {
         let caller = get_caller_address();
         let allowed: u256 = _allowances::read((from, caller));
 
