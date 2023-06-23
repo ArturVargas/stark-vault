@@ -122,15 +122,15 @@ mod Vault {
     
     #[external]
     fn stake(amount: u256, user_stake: ContractAddress) -> u256 {
-        // let caller = get_caller_address();
+        let caller = get_caller_address();
         let this_contract = get_contract_address();
         let staking_token = IERC20Dispatcher { contract_address: _staking_token::read() };
 
-        let approved: u256 = staking_token.allowance(user_stake, this_contract);
+        let approved: u256 = staking_token.allowance(caller, this_contract);
         assert(approved > 1.into(), 'Not approved');
         assert(amount != 0.into(), 'Must be greater than 0');
 
-        staking_token.transferFrom(user_stake, this_contract, amount);
+        staking_token.transferFrom(caller, this_contract, amount);
         _stakers::write(user_stake, amount);
         _rewards::write(user_stake, _rewards::read(user_stake) + 500000.into());
         
